@@ -79,4 +79,16 @@ public class ControladorPrincipal {
         return MapeamentoBD.getInstance().getTreinoPorId(id);
     }
 
+    public boolean getIdTreinoBoolean(int id) throws SQLException {
+        boolean aux = false;
+        if (MapeamentoBD.getInstance().getIdTreinoBoolean(id)) {
+            aux = true;
+        }
+        return aux;
+    }
+
+    public void atualizaTreino(Treino t, int id) throws SQLException {
+        MapeamentoBD.getInstance().AtualizaTreino(t, id);
+    }
+
 }

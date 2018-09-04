@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.CheckBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -1101,16 +1102,27 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     }
 
     private void buscarAlunoPorIdTreino(int id) throws SQLException {
-        try {
-            ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getAlunoPorId(id);
-            ArrayList<Treino> dados2 = ControladorPrincipal.getInstance().getTreinoPorId(id);
-            for (int i = 0; i < dados.size(); i++) {
-                Aluno a = dados.get(i);
-                jTextField32.setText(a.getNome());
-                jTextField33.setText(String.valueOf(a.getId()));;               
-            }
-            
-            for(int i=0; i<dados2.size(); i++){
+        //try {
+        jCheckBox1.setSelected(false);
+        jCheckBox2.setSelected(false);
+        jCheckBox3.setSelected(false);
+        jCheckBox4.setSelected(false);
+        jCheckBox5.setSelected(false);
+        jCheckBox6.setSelected(false);
+        jCheckBox7.setSelected(false);
+        jCheckBox8.setSelected(false);
+        jCheckBox9.setSelected(false);
+        jCheckBox10.setSelected(false);
+
+        ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getAlunoPorId(id);
+        ArrayList<Treino> dados2 = ControladorPrincipal.getInstance().getTreinoPorId(id);
+        for (int i = 0; i < dados.size(); i++) {
+            Aluno a = dados.get(i);
+            jTextField32.setText(a.getNome());
+            jTextField33.setText(String.valueOf(a.getId()));;
+        }
+
+        for (int i = 0; i < dados2.size(); i++) {
             Treino t = dados2.get(i);
             String biceps = t.getBiceps();
             String triceps = t.getTriceps();
@@ -1122,12 +1134,42 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             String supino = t.getSupino();
             String gluteos = t.getGluteos();
             String costas = t.getCostas();
-            
+
+            if (biceps != null && !biceps.isEmpty()) {
+                jCheckBox1.setSelected(rootPaneCheckingEnabled);
+            }
+            if (triceps != null && !triceps.isEmpty()) {
+                jCheckBox2.setSelected(rootPaneCheckingEnabled);
+            }
+            if (perna != null && !perna.isEmpty()) {
+                jCheckBox3.setSelected(rootPaneCheckingEnabled);
+            }
+            if (abdominal != null && !abdominal.isEmpty()) {
+                jCheckBox4.setSelected(rootPaneCheckingEnabled);
+            }
+            if (flexao != null && !flexao.isEmpty()) {
+                jCheckBox5.setSelected(rootPaneCheckingEnabled);
+            }
+            if (corrida != null && !corrida.isEmpty()) {
+                jCheckBox6.setSelected(rootPaneCheckingEnabled);
+            }
+            if (jump != null && !jump.isEmpty()) {
+                jCheckBox7.setSelected(rootPaneCheckingEnabled);
+            }
+            if (supino != null && !supino.isEmpty()) {
+                jCheckBox8.setSelected(rootPaneCheckingEnabled);
+            }
+            if (gluteos != null && !gluteos.isEmpty()) {
+                jCheckBox9.setSelected(rootPaneCheckingEnabled);
+            }
+            if (costas != null && !costas.isEmpty()) {
+                jCheckBox10.setSelected(rootPaneCheckingEnabled);
+            }
         }
-            
+        /*    
         } catch (Exception e) {
             System.out.println(e);
-        }
+        } */
     }
 
     private void buscarAlunoPorNomeTreino(String nome) throws SQLException {
@@ -1156,7 +1198,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         String supino = "";
         String gluteos = "";
         String costas = "";
-        
+
         if (jCheckBox1.isSelected()) {
             System.out.println("checkbox1 is enabled");
             biceps = "Bíceps";
@@ -1199,8 +1241,16 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         }
 
         Treino t = new Treino(id, nome, biceps, triceps, perna, abdominal, flexao, corrida, jump, supino, gluteos, costas);
-        ControladorPrincipal.getInstance().insereTreino(t);
-        ControladorPrincipal.getInstance().getTreinoPorNome(nome);
-        ControladorPrincipal.getInstance().getTreinoPorId(id);
+        
+        if (!ControladorPrincipal.getInstance().getIdTreinoBoolean(id)){
+            ControladorPrincipal.getInstance().insereTreino(t);
+        } else {
+            // atualizar o treino
+            ControladorPrincipal.getInstance().atualizaTreino(t, id);
+        }
+        
+        
+        //ControladorPrincipal.getInstance().getTreinoPorNome(nome);
+        //ControladorPrincipal.getInstance().getTreinoPorId(id);
     }
 }

@@ -214,9 +214,31 @@ public class MapeamentoBD {
     }
 
     public void insereTreino(Treino t) throws SQLException {
-        String query = "INSERT INTO treino(id, nome, biceps, triceps, perna, abdominal, flexao, corrida, jump, supino, gluteos, costas) "
+        String query = "INSERT INTO treino(id, nome, biceps, triceps, perna, abdominal, flexao, corrida, jump, supino, gluteos, costas ) "
                 + "VALUES('" + t.getId() + "',"
                 + "'" + t.getNome() + "',"
+                + "'" + t.getBiceps() + "',"
+                + "'" + t.getTriceps() + "',"
+                + "'" + t.getPerna() + "',"
+                + "'" + t.getAbdominal() + "',"
+                + "'" + t.getFlexao() + "',"
+                + "'" + t.getCorrida() + "',"
+                + "'" + t.getJump() + "',"
+                + "'" + t.getSupino() + "',"
+                + "'" + t.getGluteos() + "',"
+                + "'" + t.getCostas() + "')";
+
+        try {
+            SQLite.getInstancia().update(query);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public void AtualizaTreino(Treino t, int id) throws SQLException {
+        String query = "INSERT INTO treino(id, nome, biceps, triceps, perna, abdominal, flexao, corrida, jump, supino, gluteos, costas) "
+                + " WHERE id = '" + id + "', "
+                + " VALUES('" + t.getNome() + "',"
                 + "'" + t.getBiceps() + "',"
                 + "'" + t.getTriceps() + "',"
                 + "'" + t.getPerna() + "',"
@@ -270,6 +292,25 @@ public class MapeamentoBD {
                 result.add(t);
             }
             return result;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public boolean getIdTreinoBoolean(int id) throws SQLException {
+        boolean aux = false;
+        int aux2 = 0;
+        String query = "SELECT id, nome FROM treino "
+                + "WHERE id = '" + id + "'";
+        try {
+            ResultSet rs = SQLite.getInstancia().getConsulta(query);
+            while (rs.next()) {
+                aux2 = rs.getInt("id");
+                if (id == aux2) {
+                    aux = true;
+                }
+            }
+            return aux;
         } catch (SQLException e) {
             throw e;
         }
