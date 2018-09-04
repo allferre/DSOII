@@ -9,6 +9,7 @@ import Controle.ControladorPrincipal;
 import Modelo.Aluno;
 import Modelo.AlunoTableModel;
 import Modelo.Treino;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -202,6 +203,12 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
 
         jLabel30.setText("Digite o ID do aluno:");
 
+        jTextField30.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField30KeyPressed(evt);
+            }
+        });
+
         jButton12.setText("Buscar");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,6 +217,12 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
         });
 
         jLabel31.setText("Digite o nome do aluno:");
+
+        jTextField31.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField31KeyPressed(evt);
+            }
+        });
 
         jButton13.setText("Buscar");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -343,6 +356,12 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
 
         jLabel28.setText("Digite o ID do aluno:");
 
+        jTextField28.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField28KeyPressed(evt);
+            }
+        });
+
         jButton10.setText("Buscar");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -351,6 +370,12 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
         });
 
         jLabel20.setText("Digite o nome do aluno:");
+
+        jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField17KeyPressed(evt);
+            }
+        });
 
         jButton5.setText("Buscar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -495,6 +520,46 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
             Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jTextField30KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField30KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                buscarAlunoPorIdTreino(Integer.parseInt(jTextField30.getText()));
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jTextField30KeyPressed
+
+    private void jTextField31KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField31KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                buscarAlunoPorNomeTreino(jTextField31.getText());
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jTextField31KeyPressed
+
+    private void jTextField28KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField28KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                buscarAlunoPorId(Integer.parseInt(jTextField28.getText()));
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaPrincipalFunc.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jTextField28KeyPressed
+
+    private void jTextField17KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField17KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                buscarAlunoPorNome(jTextField17.getText());
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaPrincipalFunc.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jTextField17KeyPressed
 
     /**
      * @param args the command line arguments
