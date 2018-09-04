@@ -1,0 +1,215 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Persistencia;
+
+import Modelo.Aluno;
+import java.sql.SQLException;
+import Modelo.Funcionario;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author Allan
+ */
+public class MapeamentoBD {
+
+    private static MapeamentoBD instance = null;
+
+    public static synchronized MapeamentoBD getInstance() throws SQLException {
+        if (instance == null) {
+            instance = new MapeamentoBD();
+        }
+        return instance;
+    }
+
+    public void insereFuncionario(Funcionario f) throws SQLException {
+        String query = "INSERT INTO funcionario(nome, cpf, rg, nascimento, telefone, endereco, cargo, salario, login, senha) "
+                + "VALUES('" + f.getNome() + "',"
+                + "'" + f.getCpf() + "',"
+                + "'" + f.getRg() + "',"
+                + "'" + f.getNascimento() + "',"
+                + "'" + f.getTelefone() + "',"
+                + "'" + f.getEndereco() + "',"
+                + "'" + f.getCargo() + "',"
+                + "'" + f.getSalario() + "',"
+                + "'" + f.getLogin() + "',"
+                + "'" + f.getSenha() + "')";
+
+        try {
+            SQLite.getInstancia().update(query);
+        } catch (SQLException e) {
+            throw e;
+        }
+
+    }
+
+    public void insereAluno(Aluno a) throws SQLException {
+        String query = "INSERT INTO aluno(nome, cpf, rg, nascimento, telefone, endereco) "
+                + "VALUES('" + a.getNome() + "',"
+                + "'" + a.getCpf() + "',"
+                + "'" + a.getRg() + "',"
+                + "'" + a.getNascimento() + "',"
+                + "'" + a.getTelefone() + "',"
+                + "'" + a.getEndereco() + "')";
+
+        try {
+            SQLite.getInstancia().update(query);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public void insereSenha(String login, String senha) throws SQLException {
+        String query = "INSERT INTO login(login, senha) "
+                + "VALUES('" + login + "',"
+                + "'" + senha + "')";
+        try {
+            SQLite.getInstancia().update(query);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public ArrayList<Aluno> getTodosAlunos() throws SQLException {
+        String query = "SELECT id, nome, cpf, rg, nascimento, telefone, endereco FROM aluno";
+
+        try {
+            ResultSet rs = SQLite.getInstancia().getConsulta(query);
+            ArrayList<Aluno> result = new ArrayList<Aluno>();
+            while (rs.next()) {
+
+                Aluno a = new Aluno(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf"), rs.getString("rg"), rs.getString("nascimento"), rs.getString("telefone"), rs.getString("endereco"));
+                result.add(a);
+            }
+            return result;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public ArrayList<Funcionario> getTodosFuncionarios() throws SQLException {
+        String query = "SELECT id, nome, cpf, rg, nascimento, telefone, endereco, cargo, salario, login, senha FROM funcionario";
+
+        try {
+            ResultSet rs = SQLite.getInstancia().getConsulta(query);
+            ArrayList<Funcionario> result = new ArrayList<Funcionario>();
+            while (rs.next()) {
+
+                Funcionario f = new Funcionario(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf"), rs.getString("rg"), rs.getString("nascimento"), rs.getString("telefone"),
+                        rs.getString("endereco"), rs.getString("cargo"), rs.getDouble("salario"), rs.getString("login"), rs.getString("senha"));
+                result.add(f);
+            }
+            return result;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public ArrayList<Aluno> getAlunoPorNome(String nome) throws SQLException {
+        String query = "SELECT id, nome, cpf, rg, nascimento, telefone, endereco FROM aluno "
+                + "WHERE nome LIKE '" + nome + "'";
+        try {
+            ResultSet rs = SQLite.getInstancia().getConsulta(query);
+            ArrayList<Aluno> result = new ArrayList<Aluno>();
+            while (rs.next()) {
+
+                Aluno a = new Aluno(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf"), rs.getString("rg"), rs.getString("nascimento"), rs.getString("telefone"), rs.getString("endereco"));
+                result.add(a);
+            }
+            return result;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public ArrayList<Aluno> getAlunoPorId(int id) throws SQLException {
+        try {
+            String query = "SELECT id, nome, cpf, rg, nascimento, telefone, endereco FROM aluno "
+                    + "WHERE id = '" + id + "'";
+
+            ResultSet rs = SQLite.getInstancia().getConsulta(query);
+            ArrayList<Aluno> result = new ArrayList<Aluno>();
+            while (rs.next()) {
+
+                Aluno a = new Aluno(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf"), rs.getString("rg"), rs.getString("nascimento"), rs.getString("telefone"), rs.getString("endereco"));
+                result.add(a);
+            }
+            return result;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public int getIdAluno() throws SQLException {
+        String query = "SELECT MAX(id) AS Id from aluno";
+        int result = 0;
+        try {
+            ResultSet rs = SQLite.getInstancia().getConsulta(query);
+            //while (rs.next()) {
+            rs.next();
+            result = rs.getInt("Id");
+            System.out.println(result);
+            //}
+            return result;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public int getIdFuncionario() throws SQLException {
+        String query = "SELECT MAX(id) AS Id from funcionario";
+        int result = 0;
+        try {
+            ResultSet rs = SQLite.getInstancia().getConsulta(query);
+            //while (rs.next()) {
+            rs.next();
+            result = rs.getInt("Id");
+            System.out.println(result);
+            //}
+            return result;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public ArrayList<Funcionario> getFuncionarioPorNome(String nome) throws SQLException {
+        String query = "SELECT id, nome, cpf, rg, nascimento, telefone, endereco, cargo, salario, login, senha FROM funcionario "
+                + "WHERE nome LIKE '" + nome + "'";
+        try {
+            ResultSet rs = SQLite.getInstancia().getConsulta(query);
+            ArrayList<Funcionario> result = new ArrayList<Funcionario>();
+            while (rs.next()) {
+
+                Funcionario f = new Funcionario(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf"), rs.getString("rg"), rs.getString("nascimento"), rs.getString("telefone"),
+                        rs.getString("endereco"), rs.getString("cargo"), rs.getDouble("salario"), rs.getString("login"), rs.getString("senha"));
+                result.add(f);
+            }
+            return result;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public ArrayList<Funcionario> getFuncionarioPorId(int id) throws SQLException {
+        String query = "SELECT id, nome, cpf, rg, nascimento, telefone, endereco, cargo, salario, login, senha FROM funcionario "
+                + "WHERE id = '" + id + "'";
+        try {
+            ResultSet rs = SQLite.getInstancia().getConsulta(query);
+            ArrayList<Funcionario> result = new ArrayList<Funcionario>();
+            while (rs.next()) {
+
+                Funcionario f = new Funcionario(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf"), rs.getString("rg"), rs.getString("nascimento"), rs.getString("telefone"),
+                        rs.getString("endereco"), rs.getString("cargo"), rs.getDouble("salario"), rs.getString("login"), rs.getString("senha"));
+                result.add(f);
+            }
+            return result;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+}
