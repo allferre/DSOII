@@ -8,6 +8,7 @@ package Persistencia;
 import Modelo.Aluno;
 import java.sql.SQLException;
 import Modelo.Funcionario;
+import Modelo.Treino;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -205,6 +206,68 @@ public class MapeamentoBD {
                 Funcionario f = new Funcionario(rs.getInt("id"), rs.getString("nome"), rs.getString("cpf"), rs.getString("rg"), rs.getString("nascimento"), rs.getString("telefone"),
                         rs.getString("endereco"), rs.getString("cargo"), rs.getDouble("salario"), rs.getString("login"), rs.getString("senha"));
                 result.add(f);
+            }
+            return result;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public void insereTreino(Treino t) throws SQLException {
+        String query = "INSERT INTO treino(id, nome, biceps, triceps, perna, abdominal, flexao, corrida, jump, supino, gluteos, costas) "
+                + "VALUES('" + t.getId() + "',"
+                + "'" + t.getNome() + "',"
+                + "'" + t.getBiceps() + "',"
+                + "'" + t.getTriceps() + "',"
+                + "'" + t.getPerna() + "',"
+                + "'" + t.getAbdominal() + "',"
+                + "'" + t.getFlexao() + "',"
+                + "'" + t.getCorrida() + "',"
+                + "'" + t.getJump() + "',"
+                + "'" + t.getSupino() + "',"
+                + "'" + t.getGluteos() + "',"
+                + "'" + t.getCostas() + "')";
+
+        try {
+            SQLite.getInstancia().update(query);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public ArrayList<Treino> getTreinoPorId(int id) throws SQLException {
+        try {
+            String query = "SELECT id, nome, biceps, triceps, perna, abdominal, flexao, corrida, jump, supino, gluteos, costas FROM treino "
+                    + "WHERE id = '" + id + "'";
+
+            ResultSet rs = SQLite.getInstancia().getConsulta(query);
+            ArrayList<Treino> result = new ArrayList<Treino>();
+            while (rs.next()) {
+
+                Treino t = new Treino(rs.getInt("id"), rs.getString("nome"), rs.getString("biceps"), rs.getString("triceps"),
+                        rs.getString("perna"), rs.getString("abdominal"), rs.getString("flexao"), rs.getString("corrida"),
+                        rs.getString("jump"), rs.getString("supino"), rs.getString("gluteos"), rs.getString("costas"));
+                result.add(t);
+            }
+            return result;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public ArrayList<Treino> getTreinoPorNome(String nome) throws SQLException {
+        try {
+            String query = "SELECT id, nome, biceps, triceps, perna, abdominal, flexao, corrida, jump, supino, gluteos, costas FROM treino "
+                    + "WHERE nome LIKE '" + nome + "'";
+
+            ResultSet rs = SQLite.getInstancia().getConsulta(query);
+            ArrayList<Treino> result = new ArrayList<Treino>();
+            while (rs.next()) {
+
+                Treino t = new Treino(rs.getInt("id"), rs.getString("nome"), rs.getString("biceps"), rs.getString("triceps"),
+                        rs.getString("perna"), rs.getString("abdominal"), rs.getString("flexao"), rs.getString("corrida"),
+                        rs.getString("jump"), rs.getString("supino"), rs.getString("gluteos"), rs.getString("costas"));
+                result.add(t);
             }
             return result;
         } catch (SQLException e) {

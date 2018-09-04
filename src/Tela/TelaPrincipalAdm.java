@@ -1103,11 +1103,28 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     private void buscarAlunoPorIdTreino(int id) throws SQLException {
         try {
             ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getAlunoPorId(id);
+            ArrayList<Treino> dados2 = ControladorPrincipal.getInstance().getTreinoPorId(id);
             for (int i = 0; i < dados.size(); i++) {
                 Aluno a = dados.get(i);
                 jTextField32.setText(a.getNome());
-                jTextField33.setText(String.valueOf(a.getId()));;
+                jTextField33.setText(String.valueOf(a.getId()));;               
             }
+            
+            for(int i=0; i<dados2.size(); i++){
+            Treino t = dados2.get(i);
+            String biceps = t.getBiceps();
+            String triceps = t.getTriceps();
+            String perna = t.getPerna();
+            String abdominal = t.getAbdominal();
+            String flexao = t.getFlexao();
+            String corrida = t.getCorrida();
+            String jump = t.getJump();
+            String supino = t.getSupino();
+            String gluteos = t.getGluteos();
+            String costas = t.getCostas();
+            
+        }
+            
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -1183,5 +1200,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
         Treino t = new Treino(id, nome, biceps, triceps, perna, abdominal, flexao, corrida, jump, supino, gluteos, costas);
         ControladorPrincipal.getInstance().insereTreino(t);
+        ControladorPrincipal.getInstance().getTreinoPorNome(nome);
+        ControladorPrincipal.getInstance().getTreinoPorId(id);
     }
 }

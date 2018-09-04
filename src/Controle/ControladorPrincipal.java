@@ -67,8 +67,16 @@ public class ControladorPrincipal {
         return MapeamentoBD.getInstance().getFuncionarioPorId(id);
     }
 
-    public void insereTreino(Treino t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void insereTreino(Treino t) throws SQLException {
+        MapeamentoBD.getInstance().insereTreino(t);
+    }
+
+    public ArrayList<Treino> getTreinoPorNome(String nome) throws SQLException {
+        return MapeamentoBD.getInstance().getTreinoPorNome(nome);
+    }
+
+    public ArrayList<Treino> getTreinoPorId(int id) throws SQLException {
+        return MapeamentoBD.getInstance().getTreinoPorId(id);
     }
 
 }
