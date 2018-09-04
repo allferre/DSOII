@@ -15,10 +15,10 @@ import java.sql.SQLException;
  * @author Allan
  */
 public class ControladorLogin {
-    
+
     private static ControladorLogin instance = null;
-    
-     public static synchronized ControladorLogin getInstance() throws SQLException {
+
+    public static synchronized ControladorLogin getInstance() throws SQLException {
         if (instance == null) {
             instance = new ControladorLogin();
         }
@@ -26,30 +26,14 @@ public class ControladorLogin {
     }
 
     public ControladorLogin() throws SQLException {
-
     }
-    
+
     public boolean getSenhaBoolean(String login, String senha) throws SQLException {
-        boolean aux = false;
-        String aux2 = "";
-        String query = "SELECT login, senha FROM login "
-                + "WHERE login = '" + login + "'";
-        try {
-            ResultSet rs = SQLite.getInstancia().getConsulta(query);
-            while (rs.next()) {
-                aux2 = rs.getString("senha");
-                if (aux2.equals(senha)) {
-                    aux = true;
-                }
-            }
-            return aux;
-        } catch (SQLException e) {
-            throw e;
-        }
+        return MapeamentoBD.getInstance().getSenhaBoolean(login, senha);
     }
 
     public void insereLogin(String loginFunc, String senhaFunc) throws SQLException {
         MapeamentoBD.getInstance().insereSenha(loginFunc, senhaFunc);
     }
-    
+
 }

@@ -236,8 +236,8 @@ public class MapeamentoBD {
     }
 
     public void AtualizaTreino(Treino t, int id) throws SQLException {
-        String query = "UPDATE treino SET id = '"+ id +"', nome='"+t.getNome()+"', "               
-                + "biceps='"+t.getBiceps()+"', "
+        String query = "UPDATE treino SET id = '" + id + "', nome='" + t.getNome() + "', "
+                + "biceps='" + t.getBiceps() + "', "
                 + "triceps='" + t.getTriceps() + "', "
                 + "perna='" + t.getPerna() + "', "
                 + "abdominal='" + t.getAbdominal() + "', "
@@ -306,6 +306,25 @@ public class MapeamentoBD {
             while (rs.next()) {
                 aux2 = rs.getInt("id");
                 if (id == aux2) {
+                    aux = true;
+                }
+            }
+            return aux;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public boolean getSenhaBoolean(String login, String senha) throws SQLException {
+        boolean aux = false;
+        String aux2 = "";
+        String query = "SELECT login, senha FROM login "
+                + "WHERE login = '" + login + "'";
+        try {
+            ResultSet rs = SQLite.getInstancia().getConsulta(query);
+            while (rs.next()) {
+                aux2 = rs.getString("senha");
+                if (aux2.equals(senha)) {
                     aux = true;
                 }
             }
