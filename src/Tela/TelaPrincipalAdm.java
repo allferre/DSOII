@@ -1009,22 +1009,20 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             String senhaFunc = jTextField16.getText();
             int id = Integer.parseInt(jTextField26.getText());
 
-            Funcionario f = new Funcionario(id, nomeFunc, cpfFunc, rgFunc, nascimentoFunc, telefoneFunc, enderecoFunc, cargoFunc, salarioFunc, loginFunc, senhaFunc);
-            ControladorPrincipal.getInstance().insereFuncionario(f);
-            ControladorLogin.getInstance().insereLogin(loginFunc, senhaFunc);
+            Funcionario f = new Funcionario(id, nomeFunc, cpfFunc, rgFunc, nascimentoFunc,
+                    telefoneFunc, enderecoFunc, cargoFunc, salarioFunc, loginFunc, senhaFunc);
 
-            JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso");
-            jTextField7.setText("");
-            jTextField8.setText("");
-            jTextField9.setText("");
-            jTextField10.setText("");
-            jTextField11.setText("");
-            jTextField12.setText("");
-            jTextField13.setText("");
-            jTextField14.setText("");
-            jTextField15.setText("");
-            jTextField16.setText("");
-            setarIdFuncionario();
+            if (nomeFunc.isEmpty() || cpfFunc.isEmpty() || rgFunc.isEmpty() || nascimentoFunc.isEmpty()
+                    || telefoneFunc.isEmpty() || enderecoFunc.isEmpty() || cargoFunc.isEmpty()
+                    || jTextField14.equals("") || loginFunc.isEmpty() || senhaFunc.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios");
+            } else {
+                ControladorPrincipal.getInstance().insereFuncionario(f);
+                ControladorLogin.getInstance().insereLogin(loginFunc, senhaFunc);
+                JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso");
+                setarJTextFieldVazio();
+                setarIdFuncionario();
+            }
 
         } catch (Exception e) {
             System.out.println(e);
@@ -1042,16 +1040,16 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             int id = Integer.parseInt(jTextField27.getText());
 
             Aluno a = new Aluno(id, nomeFunc, cpfFunc, rgFunc, nascimentoFunc, telefoneFunc, enderecoFunc);
-            ControladorPrincipal.getInstance().insereAluno(a);
 
-            JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso");
-            jTextField1.setText("");
-            jTextField2.setText("");
-            jTextField3.setText("");
-            jTextField4.setText("");
-            jTextField5.setText("");
-            jTextField6.setText("");
-            setarIdAluno();
+            if (nomeFunc.isEmpty() || cpfFunc.isEmpty() || rgFunc.isEmpty() || nascimentoFunc.isEmpty()
+                    || telefoneFunc.isEmpty() || enderecoFunc.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios");
+            } else {
+                ControladorPrincipal.getInstance().insereAluno(a);
+                JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso");
+                setarJTextFieldVazio();
+                setarIdAluno();
+            }
 
         } catch (Exception e) {
             System.out.println(e);
@@ -1376,7 +1374,8 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             costas = "Costas";
         }
 
-        Treino t = new Treino(id, nome, biceps, triceps, perna, abdominal, flexao, corrida, jump, supino, gluteos, costas);
+        Treino t = new Treino(id, nome, biceps, triceps, perna, abdominal, flexao,
+                corrida, jump, supino, gluteos, costas);
 
         if (!ControladorPrincipal.getInstance().getIdTreinoBoolean(id)) {
             ControladorPrincipal.getInstance().insereTreino(t);
@@ -1398,5 +1397,24 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jCheckBox8.setSelected(false);
         jCheckBox9.setSelected(false);
         jCheckBox10.setSelected(false);
+    }
+
+    private void setarJTextFieldVazio() {
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+        jTextField11.setText("");
+        jTextField12.setText("");
+        jTextField13.setText("");
+        jTextField14.setText("");
+        jTextField15.setText("");
+        jTextField16.setText("");
     }
 }
