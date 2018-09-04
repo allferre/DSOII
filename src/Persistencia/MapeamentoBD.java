@@ -236,19 +236,18 @@ public class MapeamentoBD {
     }
 
     public void AtualizaTreino(Treino t, int id) throws SQLException {
-        String query = "INSERT INTO treino(id, nome, biceps, triceps, perna, abdominal, flexao, corrida, jump, supino, gluteos, costas) "
-                + " WHERE id = '" + id + "', "
-                + " VALUES('" + t.getNome() + "',"
-                + "'" + t.getBiceps() + "',"
-                + "'" + t.getTriceps() + "',"
-                + "'" + t.getPerna() + "',"
-                + "'" + t.getAbdominal() + "',"
-                + "'" + t.getFlexao() + "',"
-                + "'" + t.getCorrida() + "',"
-                + "'" + t.getJump() + "',"
-                + "'" + t.getSupino() + "',"
-                + "'" + t.getGluteos() + "',"
-                + "'" + t.getCostas() + "')";
+        String query = "UPDATE treino SET id = '"+ id +"', nome='"+t.getNome()+"', "               
+                + "biceps='"+t.getBiceps()+"', "
+                + "triceps='" + t.getTriceps() + "', "
+                + "perna='" + t.getPerna() + "', "
+                + "abdominal='" + t.getAbdominal() + "', "
+                + "flexao='" + t.getFlexao() + "', "
+                + "corrida='" + t.getCorrida() + "', "
+                + "jump='" + t.getJump() + "', "
+                + "supino='" + t.getSupino() + "', "
+                + "gluteos='" + t.getGluteos() + "', "
+                + "costas='" + t.getCostas() + "' "
+                + "WHERE id = '" + id + "'";
 
         try {
             SQLite.getInstancia().update(query);
@@ -315,5 +314,4 @@ public class MapeamentoBD {
             throw e;
         }
     }
-
 }

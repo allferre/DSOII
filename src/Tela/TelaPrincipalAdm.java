@@ -12,6 +12,7 @@ import Modelo.Aluno;
 import Modelo.AlunoTableModel;
 import Modelo.FuncionarioTableModel;
 import Modelo.Treino;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -370,6 +371,12 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
         jLabel30.setText("Digite o ID do aluno:");
 
+        jTextField30.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField30KeyPressed(evt);
+            }
+        });
+
         jButton12.setText("Buscar");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,6 +385,12 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         });
 
         jLabel31.setText("Digite o nome do aluno:");
+
+        jTextField31.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField31KeyPressed(evt);
+            }
+        });
 
         jButton13.setText("Buscar");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -517,6 +530,12 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
         jLabel20.setText("Digite o nome do aluno:");
 
+        jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField17KeyPressed(evt);
+            }
+        });
+
         jButton5.setText("Buscar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -545,6 +564,12 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jLabel28.setText("Digite o ID do aluno:");
+
+        jTextField28.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField28KeyPressed(evt);
+            }
+        });
 
         jButton10.setText("Buscar");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -602,6 +627,12 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
         jLabel21.setText("Digite o nome do funcionario:");
 
+        jTextField18.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField18KeyPressed(evt);
+            }
+        });
+
         jButton7.setText("Buscar");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -630,6 +661,12 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         jLabel29.setText("Digite o ID do funcionario:");
+
+        jTextField29.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField29KeyPressed(evt);
+            }
+        });
 
         jButton11.setText("Buscar");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -770,6 +807,66 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jTextField30KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField30KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                buscarAlunoPorIdTreino(Integer.parseInt(jTextField30.getText()));
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jTextField30KeyPressed
+
+    private void jTextField31KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField31KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                buscarAlunoPorNomeTreino(jTextField31.getText());
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jTextField31KeyPressed
+
+    private void jTextField28KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField28KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                buscarAlunoPorId(Integer.parseInt(jTextField28.getText()));
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jTextField28KeyPressed
+
+    private void jTextField17KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField17KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                buscarAlunoPorNome(jTextField17.getText());
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jTextField17KeyPressed
+
+    private void jTextField29KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField29KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                buscarFuncionarioPorId(Integer.parseInt(jTextField29.getText()));
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jTextField29KeyPressed
+
+    private void jTextField18KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                buscarFuncionarioPorNome(jTextField18.getText());
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jTextField18KeyPressed
 
     /**
      * @param args the command line arguments
@@ -1102,84 +1199,123 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     }
 
     private void buscarAlunoPorIdTreino(int id) throws SQLException {
-        //try {
-        jCheckBox1.setSelected(false);
-        jCheckBox2.setSelected(false);
-        jCheckBox3.setSelected(false);
-        jCheckBox4.setSelected(false);
-        jCheckBox5.setSelected(false);
-        jCheckBox6.setSelected(false);
-        jCheckBox7.setSelected(false);
-        jCheckBox8.setSelected(false);
-        jCheckBox9.setSelected(false);
-        jCheckBox10.setSelected(false);
-
-        ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getAlunoPorId(id);
-        ArrayList<Treino> dados2 = ControladorPrincipal.getInstance().getTreinoPorId(id);
-        for (int i = 0; i < dados.size(); i++) {
-            Aluno a = dados.get(i);
-            jTextField32.setText(a.getNome());
-            jTextField33.setText(String.valueOf(a.getId()));;
-        }
-
-        for (int i = 0; i < dados2.size(); i++) {
-            Treino t = dados2.get(i);
-            String biceps = t.getBiceps();
-            String triceps = t.getTriceps();
-            String perna = t.getPerna();
-            String abdominal = t.getAbdominal();
-            String flexao = t.getFlexao();
-            String corrida = t.getCorrida();
-            String jump = t.getJump();
-            String supino = t.getSupino();
-            String gluteos = t.getGluteos();
-            String costas = t.getCostas();
-
-            if (biceps != null && !biceps.isEmpty()) {
-                jCheckBox1.setSelected(rootPaneCheckingEnabled);
-            }
-            if (triceps != null && !triceps.isEmpty()) {
-                jCheckBox2.setSelected(rootPaneCheckingEnabled);
-            }
-            if (perna != null && !perna.isEmpty()) {
-                jCheckBox3.setSelected(rootPaneCheckingEnabled);
-            }
-            if (abdominal != null && !abdominal.isEmpty()) {
-                jCheckBox4.setSelected(rootPaneCheckingEnabled);
-            }
-            if (flexao != null && !flexao.isEmpty()) {
-                jCheckBox5.setSelected(rootPaneCheckingEnabled);
-            }
-            if (corrida != null && !corrida.isEmpty()) {
-                jCheckBox6.setSelected(rootPaneCheckingEnabled);
-            }
-            if (jump != null && !jump.isEmpty()) {
-                jCheckBox7.setSelected(rootPaneCheckingEnabled);
-            }
-            if (supino != null && !supino.isEmpty()) {
-                jCheckBox8.setSelected(rootPaneCheckingEnabled);
-            }
-            if (gluteos != null && !gluteos.isEmpty()) {
-                jCheckBox9.setSelected(rootPaneCheckingEnabled);
-            }
-            if (costas != null && !costas.isEmpty()) {
-                jCheckBox10.setSelected(rootPaneCheckingEnabled);
-            }
-        }
-        /*    
-        } catch (Exception e) {
-            System.out.println(e);
-        } */
-    }
-
-    private void buscarAlunoPorNomeTreino(String nome) throws SQLException {
         try {
-            ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getAlunoPorNome(nome);
+            setarCheckBoxFalse();
+
+            ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getAlunoPorId(id);
+            ArrayList<Treino> dados2 = ControladorPrincipal.getInstance().getTreinoPorId(id);
             for (int i = 0; i < dados.size(); i++) {
                 Aluno a = dados.get(i);
                 jTextField32.setText(a.getNome());
                 jTextField33.setText(String.valueOf(a.getId()));;
             }
+
+            for (int i = 0; i < dados2.size(); i++) {
+                Treino t = dados2.get(i);
+                String biceps = t.getBiceps();
+                String triceps = t.getTriceps();
+                String perna = t.getPerna();
+                String abdominal = t.getAbdominal();
+                String flexao = t.getFlexao();
+                String corrida = t.getCorrida();
+                String jump = t.getJump();
+                String supino = t.getSupino();
+                String gluteos = t.getGluteos();
+                String costas = t.getCostas();
+
+                if (biceps != null && !biceps.isEmpty()) {
+                    jCheckBox1.setSelected(rootPaneCheckingEnabled);
+                }
+                if (triceps != null && !triceps.isEmpty()) {
+                    jCheckBox2.setSelected(rootPaneCheckingEnabled);
+                }
+                if (perna != null && !perna.isEmpty()) {
+                    jCheckBox3.setSelected(rootPaneCheckingEnabled);
+                }
+                if (abdominal != null && !abdominal.isEmpty()) {
+                    jCheckBox4.setSelected(rootPaneCheckingEnabled);
+                }
+                if (flexao != null && !flexao.isEmpty()) {
+                    jCheckBox5.setSelected(rootPaneCheckingEnabled);
+                }
+                if (corrida != null && !corrida.isEmpty()) {
+                    jCheckBox6.setSelected(rootPaneCheckingEnabled);
+                }
+                if (jump != null && !jump.isEmpty()) {
+                    jCheckBox7.setSelected(rootPaneCheckingEnabled);
+                }
+                if (supino != null && !supino.isEmpty()) {
+                    jCheckBox8.setSelected(rootPaneCheckingEnabled);
+                }
+                if (gluteos != null && !gluteos.isEmpty()) {
+                    jCheckBox9.setSelected(rootPaneCheckingEnabled);
+                }
+                if (costas != null && !costas.isEmpty()) {
+                    jCheckBox10.setSelected(rootPaneCheckingEnabled);
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    private void buscarAlunoPorNomeTreino(String nome) throws SQLException {
+        try {
+            setarCheckBoxFalse();
+            ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getAlunoPorNome(nome);
+            ArrayList<Treino> dados2 = ControladorPrincipal.getInstance().getTreinoPorNome(nome);
+            for (int i = 0; i < dados.size(); i++) {
+                Aluno a = dados.get(i);
+                jTextField32.setText(a.getNome());
+                jTextField33.setText(String.valueOf(a.getId()));;
+            }
+
+            for (int i = 0; i < dados2.size(); i++) {
+                Treino t = dados2.get(i);
+                String biceps = t.getBiceps();
+                String triceps = t.getTriceps();
+                String perna = t.getPerna();
+                String abdominal = t.getAbdominal();
+                String flexao = t.getFlexao();
+                String corrida = t.getCorrida();
+                String jump = t.getJump();
+                String supino = t.getSupino();
+                String gluteos = t.getGluteos();
+                String costas = t.getCostas();
+
+                if (biceps != null && !biceps.isEmpty()) {
+                    jCheckBox1.setSelected(rootPaneCheckingEnabled);
+                }
+                if (triceps != null && !triceps.isEmpty()) {
+                    jCheckBox2.setSelected(rootPaneCheckingEnabled);
+                }
+                if (perna != null && !perna.isEmpty()) {
+                    jCheckBox3.setSelected(rootPaneCheckingEnabled);
+                }
+                if (abdominal != null && !abdominal.isEmpty()) {
+                    jCheckBox4.setSelected(rootPaneCheckingEnabled);
+                }
+                if (flexao != null && !flexao.isEmpty()) {
+                    jCheckBox5.setSelected(rootPaneCheckingEnabled);
+                }
+                if (corrida != null && !corrida.isEmpty()) {
+                    jCheckBox6.setSelected(rootPaneCheckingEnabled);
+                }
+                if (jump != null && !jump.isEmpty()) {
+                    jCheckBox7.setSelected(rootPaneCheckingEnabled);
+                }
+                if (supino != null && !supino.isEmpty()) {
+                    jCheckBox8.setSelected(rootPaneCheckingEnabled);
+                }
+                if (gluteos != null && !gluteos.isEmpty()) {
+                    jCheckBox9.setSelected(rootPaneCheckingEnabled);
+                }
+                if (costas != null && !costas.isEmpty()) {
+                    jCheckBox10.setSelected(rootPaneCheckingEnabled);
+                }
+            }
+
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -1241,16 +1377,26 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         }
 
         Treino t = new Treino(id, nome, biceps, triceps, perna, abdominal, flexao, corrida, jump, supino, gluteos, costas);
-        
-        if (!ControladorPrincipal.getInstance().getIdTreinoBoolean(id)){
+
+        if (!ControladorPrincipal.getInstance().getIdTreinoBoolean(id)) {
             ControladorPrincipal.getInstance().insereTreino(t);
         } else {
             // atualizar o treino
             ControladorPrincipal.getInstance().atualizaTreino(t, id);
         }
-        
-        
-        //ControladorPrincipal.getInstance().getTreinoPorNome(nome);
-        //ControladorPrincipal.getInstance().getTreinoPorId(id);
+        JOptionPane.showMessageDialog(null, "Treino atualizado com sucesso");
+    }
+
+    public void setarCheckBoxFalse() {
+        jCheckBox1.setSelected(false);
+        jCheckBox2.setSelected(false);
+        jCheckBox3.setSelected(false);
+        jCheckBox4.setSelected(false);
+        jCheckBox5.setSelected(false);
+        jCheckBox6.setSelected(false);
+        jCheckBox7.setSelected(false);
+        jCheckBox8.setSelected(false);
+        jCheckBox9.setSelected(false);
+        jCheckBox10.setSelected(false);
     }
 }

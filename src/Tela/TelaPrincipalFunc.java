@@ -8,6 +8,7 @@ package Tela;
 import Controle.ControladorPrincipal;
 import Modelo.Aluno;
 import Modelo.AlunoTableModel;
+import Modelo.Treino;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -60,6 +61,26 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        jTextField30 = new javax.swing.JTextField();
+        jButton12 = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
+        jTextField31 = new javax.swing.JTextField();
+        jButton13 = new javax.swing.JButton();
+        jLabel32 = new javax.swing.JLabel();
+        jTextField32 = new javax.swing.JTextField();
+        jTextField33 = new javax.swing.JTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jCheckBox6 = new javax.swing.JCheckBox();
+        jCheckBox7 = new javax.swing.JCheckBox();
+        jCheckBox8 = new javax.swing.JCheckBox();
+        jCheckBox9 = new javax.swing.JCheckBox();
+        jCheckBox10 = new javax.swing.JCheckBox();
+        jButton9 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jTextField28 = new javax.swing.JTextField();
@@ -179,15 +200,143 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
 
         jTabbedPane5.addTab("Cadastro alunos", jPanel1);
 
+        jLabel30.setText("Digite o ID do aluno:");
+
+        jButton12.setText("Buscar");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setText("Digite o nome do aluno:");
+
+        jButton13.setText("Buscar");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jLabel32.setText("Nome:");
+
+        jTextField32.setEditable(false);
+
+        jTextField33.setEditable(false);
+
+        jCheckBox1.setText("Bíceps");
+
+        jCheckBox2.setText("Tríceps");
+
+        jCheckBox3.setText("Perna");
+
+        jCheckBox4.setText("Abdominal");
+
+        jCheckBox5.setText("Flexão");
+
+        jCheckBox6.setText("Corrida");
+
+        jCheckBox7.setText("Jump");
+
+        jCheckBox8.setText("Supino");
+
+        jCheckBox9.setText("Glúteos");
+
+        jCheckBox10.setText("Costas");
+
+        jButton9.setText("Atualizar treino");
+        jButton9.setActionCommand("");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 748, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLabel30)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(38, 38, 38)
+                            .addComponent(jButton12))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLabel31)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(38, 38, 38)
+                            .addComponent(jButton13)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel32)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckBox1)
+                                    .addComponent(jCheckBox2)
+                                    .addComponent(jCheckBox3)
+                                    .addComponent(jCheckBox4)
+                                    .addComponent(jCheckBox5))
+                                .addGap(114, 114, 114)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckBox10)
+                                    .addComponent(jCheckBox9)
+                                    .addComponent(jCheckBox8)
+                                    .addComponent(jCheckBox7)
+                                    .addComponent(jCheckBox6))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField33, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 367, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton13))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox1)
+                    .addComponent(jCheckBox6))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox2)
+                    .addComponent(jCheckBox7))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox3)
+                    .addComponent(jCheckBox8))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox4)
+                    .addComponent(jCheckBox9))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox5)
+                    .addComponent(jCheckBox10)
+                    .addComponent(jButton9))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jTabbedPane5.addTab("Definir treino", jPanel3);
@@ -272,7 +421,7 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
                     .addComponent(jButton6))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         jTabbedPane5.addTab("Lista alunos", jPanel4);
@@ -285,27 +434,67 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane5)
+            .addComponent(jTabbedPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        buscarAlunoPorId(Integer.parseInt(jTextField28.getText()));
+        try {
+            buscarAlunoPorId(Integer.parseInt(jTextField28.getText()));
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipalFunc.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        buscarAlunoPorNome(jTextField17.getText());
+        try {
+            buscarAlunoPorNome(jTextField17.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipalFunc.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        listarTodosAlunos();
+        try {
+            listarTodosAlunos();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipalFunc.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        cadastrarAluno();
+        try {
+            cadastrarAluno();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipalFunc.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        try {
+            buscarAlunoPorIdTreino(Integer.parseInt(jTextField30.getText()));
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        try {
+            buscarAlunoPorNomeTreino(jTextField31.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        try {
+            atualizaTreino();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -355,15 +544,31 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox10;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JCheckBox jCheckBox7;
+    private javax.swing.JCheckBox jCheckBox8;
+    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -381,12 +586,16 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField27;
     private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField30;
+    private javax.swing.JTextField jTextField31;
+    private javax.swing.JTextField jTextField32;
+    private javax.swing.JTextField jTextField33;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 
-    private void buscarAlunoPorId(int id) {
+    private void buscarAlunoPorId(int id) throws SQLException {
         try {
             tableModel.limpaTabela();
             ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getAlunoPorId(id);
@@ -406,7 +615,7 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
         }
     }
 
-    private void buscarAlunoPorNome(String nome) {
+    private void buscarAlunoPorNome(String nome) throws SQLException {
         try {
             tableModel.limpaTabela();
             ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getAlunoPorNome(nome);
@@ -426,7 +635,7 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
         }
     }
 
-    private void listarTodosAlunos() {
+    private void listarTodosAlunos() throws SQLException {
         try {
             tableModel.limpaTabela();
             ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getTodosAlunos();
@@ -447,7 +656,7 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
 
     }
 
-    private void cadastrarAluno() {
+    private void cadastrarAluno() throws SQLException {
         try {
             String nomeFunc = jTextField1.getText();
             String cpfFunc = jTextField2.getText();
@@ -477,5 +686,207 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
 
     private void setarIdAluno() throws SQLException {
         jTextField27.setText(String.valueOf(ControladorPrincipal.getInstance().getUltimoIdAluno() + 1));
+    }
+
+    private void buscarAlunoPorNomeTreino(String nome) throws SQLException {
+        try {
+            setarCheckBoxFalse();
+            ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getAlunoPorNome(nome);
+            ArrayList<Treino> dados2 = ControladorPrincipal.getInstance().getTreinoPorNome(nome);
+            for (int i = 0; i < dados.size(); i++) {
+                Aluno a = dados.get(i);
+                jTextField32.setText(a.getNome());
+                jTextField33.setText(String.valueOf(a.getId()));;
+            }
+
+            for (int i = 0; i < dados2.size(); i++) {
+                Treino t = dados2.get(i);
+                String biceps = t.getBiceps();
+                String triceps = t.getTriceps();
+                String perna = t.getPerna();
+                String abdominal = t.getAbdominal();
+                String flexao = t.getFlexao();
+                String corrida = t.getCorrida();
+                String jump = t.getJump();
+                String supino = t.getSupino();
+                String gluteos = t.getGluteos();
+                String costas = t.getCostas();
+
+                if (biceps != null && !biceps.isEmpty()) {
+                    jCheckBox1.setSelected(rootPaneCheckingEnabled);
+                }
+                if (triceps != null && !triceps.isEmpty()) {
+                    jCheckBox2.setSelected(rootPaneCheckingEnabled);
+                }
+                if (perna != null && !perna.isEmpty()) {
+                    jCheckBox3.setSelected(rootPaneCheckingEnabled);
+                }
+                if (abdominal != null && !abdominal.isEmpty()) {
+                    jCheckBox4.setSelected(rootPaneCheckingEnabled);
+                }
+                if (flexao != null && !flexao.isEmpty()) {
+                    jCheckBox5.setSelected(rootPaneCheckingEnabled);
+                }
+                if (corrida != null && !corrida.isEmpty()) {
+                    jCheckBox6.setSelected(rootPaneCheckingEnabled);
+                }
+                if (jump != null && !jump.isEmpty()) {
+                    jCheckBox7.setSelected(rootPaneCheckingEnabled);
+                }
+                if (supino != null && !supino.isEmpty()) {
+                    jCheckBox8.setSelected(rootPaneCheckingEnabled);
+                }
+                if (gluteos != null && !gluteos.isEmpty()) {
+                    jCheckBox9.setSelected(rootPaneCheckingEnabled);
+                }
+                if (costas != null && !costas.isEmpty()) {
+                    jCheckBox10.setSelected(rootPaneCheckingEnabled);
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
+    private void atualizaTreino() throws SQLException {
+        String nome = jTextField32.getText();
+        int id = Integer.parseInt(jTextField33.getText());
+        String biceps = "";
+        String triceps = "";
+        String perna = "";
+        String abdominal = "";
+        String flexao = "";
+        String corrida = "";
+        String jump = "";
+        String supino = "";
+        String gluteos = "";
+        String costas = "";
+
+        if (jCheckBox1.isSelected()) {
+            System.out.println("checkbox1 is enabled");
+            biceps = "Bíceps";
+        }
+        if (jCheckBox2.isSelected()) {
+            System.out.println("checkbox2 is enabled");
+            triceps = "Tríceps";
+        }
+        if (jCheckBox3.isSelected()) {
+            System.out.println("checkbox3 is enabled");
+            perna = "perna";
+        }
+        if (jCheckBox4.isSelected()) {
+            System.out.println("checkbox4 is enabled");
+            abdominal = "Abdominal";
+        }
+        if (jCheckBox5.isSelected()) {
+            System.out.println("checkbox5 is enabled");
+            flexao = "Flexão";
+        }
+        if (jCheckBox6.isSelected()) {
+            System.out.println("checkbox6 is enabled");
+            corrida = "Corrida";
+        }
+        if (jCheckBox7.isSelected()) {
+            System.out.println("checkbox7 is enabled");
+            jump = "Jump";
+        }
+        if (jCheckBox8.isSelected()) {
+            System.out.println("checkbox8 is enabled");
+            supino = "Supino";
+        }
+        if (jCheckBox9.isSelected()) {
+            System.out.println("checkbox9 is enabled");
+            gluteos = "Glúteos";
+        }
+        if (jCheckBox10.isSelected()) {
+            System.out.println("checkbox10 is enabled");
+            costas = "Costas";
+        }
+
+        Treino t = new Treino(id, nome, biceps, triceps, perna, abdominal, flexao, corrida, jump, supino, gluteos, costas);
+
+        if (!ControladorPrincipal.getInstance().getIdTreinoBoolean(id)) {
+            ControladorPrincipal.getInstance().insereTreino(t);
+        } else {
+            // atualizar o treino
+            ControladorPrincipal.getInstance().atualizaTreino(t, id);
+        }
+        JOptionPane.showMessageDialog(null, "Treino atualizado com sucesso");
+    }
+
+    private void buscarAlunoPorIdTreino(int id) throws SQLException {
+        try {
+            setarCheckBoxFalse();
+
+            ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getAlunoPorId(id);
+            ArrayList<Treino> dados2 = ControladorPrincipal.getInstance().getTreinoPorId(id);
+            for (int i = 0; i < dados.size(); i++) {
+                Aluno a = dados.get(i);
+                jTextField32.setText(a.getNome());
+                jTextField33.setText(String.valueOf(a.getId()));;
+            }
+
+            for (int i = 0; i < dados2.size(); i++) {
+                Treino t = dados2.get(i);
+                String biceps = t.getBiceps();
+                String triceps = t.getTriceps();
+                String perna = t.getPerna();
+                String abdominal = t.getAbdominal();
+                String flexao = t.getFlexao();
+                String corrida = t.getCorrida();
+                String jump = t.getJump();
+                String supino = t.getSupino();
+                String gluteos = t.getGluteos();
+                String costas = t.getCostas();
+
+                if (biceps != null && !biceps.isEmpty()) {
+                    jCheckBox1.setSelected(rootPaneCheckingEnabled);
+                }
+                if (triceps != null && !triceps.isEmpty()) {
+                    jCheckBox2.setSelected(rootPaneCheckingEnabled);
+                }
+                if (perna != null && !perna.isEmpty()) {
+                    jCheckBox3.setSelected(rootPaneCheckingEnabled);
+                }
+                if (abdominal != null && !abdominal.isEmpty()) {
+                    jCheckBox4.setSelected(rootPaneCheckingEnabled);
+                }
+                if (flexao != null && !flexao.isEmpty()) {
+                    jCheckBox5.setSelected(rootPaneCheckingEnabled);
+                }
+                if (corrida != null && !corrida.isEmpty()) {
+                    jCheckBox6.setSelected(rootPaneCheckingEnabled);
+                }
+                if (jump != null && !jump.isEmpty()) {
+                    jCheckBox7.setSelected(rootPaneCheckingEnabled);
+                }
+                if (supino != null && !supino.isEmpty()) {
+                    jCheckBox8.setSelected(rootPaneCheckingEnabled);
+                }
+                if (gluteos != null && !gluteos.isEmpty()) {
+                    jCheckBox9.setSelected(rootPaneCheckingEnabled);
+                }
+                if (costas != null && !costas.isEmpty()) {
+                    jCheckBox10.setSelected(rootPaneCheckingEnabled);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    private void setarCheckBoxFalse() {
+        jCheckBox1.setSelected(false);
+        jCheckBox2.setSelected(false);
+        jCheckBox3.setSelected(false);
+        jCheckBox4.setSelected(false);
+        jCheckBox5.setSelected(false);
+        jCheckBox6.setSelected(false);
+        jCheckBox7.setSelected(false);
+        jCheckBox8.setSelected(false);
+        jCheckBox9.setSelected(false);
+        jCheckBox10.setSelected(false);
     }
 }
