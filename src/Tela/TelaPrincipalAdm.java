@@ -11,6 +11,7 @@ import Modelo.Funcionario;
 import Modelo.Aluno;
 import Modelo.AlunoTableModel;
 import Modelo.FuncionarioTableModel;
+import Modelo.Treino;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -762,7 +763,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        atualizaTreino();
+        try {
+            atualizaTreino();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipalAdm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
@@ -1121,11 +1126,62 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         }
     }
 
-    private void atualizaTreino() {
+    private void atualizaTreino() throws SQLException {
         String nome = jTextField32.getText();
         int id = Integer.parseInt(jTextField33.getText());
-        if(jCheckBox1.isSelected()){
+        String biceps = "";
+        String triceps = "";
+        String perna = "";
+        String abdominal = "";
+        String flexao = "";
+        String corrida = "";
+        String jump = "";
+        String supino = "";
+        String gluteos = "";
+        String costas = "";
+        
+        if (jCheckBox1.isSelected()) {
             System.out.println("checkbox1 is enabled");
+            biceps = "Bíceps";
         }
+        if (jCheckBox2.isSelected()) {
+            System.out.println("checkbox2 is enabled");
+            triceps = "Tríceps";
+        }
+        if (jCheckBox3.isSelected()) {
+            System.out.println("checkbox3 is enabled");
+            perna = "perna";
+        }
+        if (jCheckBox4.isSelected()) {
+            System.out.println("checkbox4 is enabled");
+            abdominal = "Abdominal";
+        }
+        if (jCheckBox5.isSelected()) {
+            System.out.println("checkbox5 is enabled");
+            flexao = "Flexão";
+        }
+        if (jCheckBox6.isSelected()) {
+            System.out.println("checkbox6 is enabled");
+            corrida = "Corrida";
+        }
+        if (jCheckBox7.isSelected()) {
+            System.out.println("checkbox7 is enabled");
+            jump = "Jump";
+        }
+        if (jCheckBox8.isSelected()) {
+            System.out.println("checkbox8 is enabled");
+            supino = "Supino";
+        }
+        if (jCheckBox9.isSelected()) {
+            System.out.println("checkbox9 is enabled");
+            gluteos = "Glúteos";
+        }
+        if (jCheckBox10.isSelected()) {
+            System.out.println("checkbox10 is enabled");
+            costas = "Costas";
+        }
+
+        Treino t = new Treino(id, nome, biceps, triceps, perna, abdominal, flexao, corrida, jump, supino, gluteos, costas);
+        ControladorPrincipal.getInstance().insereTreino(t);
     }
 }

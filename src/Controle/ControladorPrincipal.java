@@ -7,6 +7,7 @@ package Controle;
 
 import Modelo.Aluno;
 import Modelo.Funcionario;
+import Modelo.Treino;
 import Persistencia.MapeamentoBD;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -64,6 +65,10 @@ public class ControladorPrincipal {
 
     public ArrayList<Funcionario> getFuncionarioPorId(int id) throws SQLException {
         return MapeamentoBD.getInstance().getFuncionarioPorId(id);
+    }
+
+    public void insereTreino(Treino t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
