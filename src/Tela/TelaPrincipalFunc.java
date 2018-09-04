@@ -732,16 +732,15 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
             int id = Integer.parseInt(jTextField27.getText());
 
             Aluno a = new Aluno(id, nomeFunc, cpfFunc, rgFunc, nascimentoFunc, telefoneFunc, enderecoFunc);
-            ControladorPrincipal.getInstance().insereAluno(a);
 
-            JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso");
-            jTextField1.setText("");
-            jTextField2.setText("");
-            jTextField3.setText("");
-            jTextField4.setText("");
-            jTextField5.setText("");
-            jTextField6.setText("");
-            setarIdAluno();
+            if (nomeFunc.isEmpty() || cpfFunc.isEmpty() || rgFunc.isEmpty() || nascimentoFunc.isEmpty() || telefoneFunc.isEmpty() || enderecoFunc.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios");
+            } else {
+                ControladorPrincipal.getInstance().insereAluno(a);
+                JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso");
+                setarJTextFieldVazio();
+                setarIdAluno();
+            }
 
         } catch (Exception e) {
             System.out.println(e);
@@ -953,5 +952,14 @@ public class TelaPrincipalFunc extends javax.swing.JFrame {
         jCheckBox8.setSelected(false);
         jCheckBox9.setSelected(false);
         jCheckBox10.setSelected(false);
+    }
+
+    private void setarJTextFieldVazio() {
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
     }
 }
