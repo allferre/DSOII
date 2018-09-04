@@ -660,6 +660,9 @@
                 <Property name="text" type="java.lang.String" value="Atualizar treino"/>
                 <Property name="actionCommand" type="java.lang.String" value=""/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

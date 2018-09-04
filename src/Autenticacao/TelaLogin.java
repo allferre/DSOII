@@ -24,6 +24,7 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public TelaLogin() {
         initComponents();
+        jTextField1.setText("Administrador");
     }
 
     /**
@@ -37,17 +38,16 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Gym Tech");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Funcionario" }));
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,40 +73,49 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("Login");
+
+        jLabel3.setText("Senha");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(144, Short.MAX_VALUE)
+                .addContainerGap(82, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(150, 150, 150))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(90, 90, 90))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(135, 135, 135))))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(135, 135, 135))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabel1)
-                .addGap(46, 46, 46)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(47, 47, 47))
+                .addGap(57, 57, 57)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -187,15 +196,16 @@ public class TelaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
     private void verificarLogin() throws SQLException {
-
+        /*
         String login = "";
         String senha = "";
 
@@ -215,7 +225,7 @@ public class TelaLogin extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e);
         }
-        System.out.println("entra aqui 3");
+        System.out.println("entra aqui 3"); 
     }
 
     private void telaAdministrador(String login, String senha) {
@@ -254,8 +264,8 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         } catch (Throwable ex) {
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+        } */
+    } 
 
     private void autenticacaoLogin() throws SQLException {
         TelaPrincipalAdm telaPrincipalAdm;

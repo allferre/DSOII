@@ -414,6 +414,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
         jButton9.setText("Atualizar treino");
         jButton9.setActionCommand("");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -756,6 +761,10 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        atualizaTreino();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1091,9 +1100,8 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getAlunoPorId(id);
             for (int i = 0; i < dados.size(); i++) {
                 Aluno a = dados.get(i);
-                a.getId();
                 jTextField32.setText(a.getNome());
-                jTextField33.setText(a.getTelefone());;
+                jTextField33.setText(String.valueOf(a.getId()));;
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -1105,12 +1113,19 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             ArrayList<Aluno> dados = ControladorPrincipal.getInstance().getAlunoPorNome(nome);
             for (int i = 0; i < dados.size(); i++) {
                 Aluno a = dados.get(i);
-                a.getId();
                 jTextField32.setText(a.getNome());
-                jTextField33.setText(a.getTelefone());;
+                jTextField33.setText(String.valueOf(a.getId()));;
             }
         } catch (Exception e) {
             System.out.println(e);
+        }
+    }
+
+    private void atualizaTreino() {
+        String nome = jTextField32.getText();
+        int id = Integer.parseInt(jTextField33.getText());
+        if(jCheckBox1.isSelected()){
+            System.out.println("checkbox1 is enabled");
         }
     }
 }
