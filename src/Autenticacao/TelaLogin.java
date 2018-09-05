@@ -24,7 +24,6 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public TelaLogin() {
         initComponents();
-        jTextField1.setText("Administrador");
     }
 
     /**
@@ -43,6 +42,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,6 +77,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jLabel3.setText("Senha");
 
+        jButton2.setText("Sair");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -97,6 +99,8 @@ public class TelaLogin extends javax.swing.JFrame {
                             .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(135, 135, 135))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(71, 71, 71))))
         );
@@ -114,7 +118,9 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38))
         );
 
@@ -134,7 +140,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            verificarLogin();
+            autenticacaoLogin();
         } catch (SQLException ex) {
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -196,6 +202,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -203,69 +210,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
-
-    private void verificarLogin() throws SQLException {
-        /*
-        String login = "";
-        String senha = "";
-
-        try {
-            if (jComboBox1.getSelectedItem() == "Administrador") {
-                // if (jTextField1.getText().trim() == adm) {
-                System.out.println("entra aqui 2");
-                login = "Administrador";
-                senha = jPasswordField1.getText().trim();
-                telaAdministrador(login, senha);
-            } else if (jComboBox1.getSelectedItem() == "Funcionario") {
-                //} else if (jTextField1.getText() == "Funcionario") {
-                login = "Funcionario";
-                senha = jPasswordField1.getText().trim();
-                telaFuncionario(login, senha);
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        System.out.println("entra aqui 3"); 
-    }
-
-    private void telaAdministrador(String login, String senha) {
-        System.out.println("entra aqui");
-        TelaPrincipalAdm telaPrincipalAdm;
-        try {
-            if (ControladorLogin.getInstance().getSenhaBoolean(login, senha)) {
-                //login ok
-                telaPrincipalAdm = new TelaPrincipalAdm();
-                telaPrincipalAdm.setLocationRelativeTo(null);
-                telaPrincipalAdm.setVisible(true);
-                telaPrincipalAdm.setTitle("Gym Tech - Academia");
-                dispose();
-            } else {
-                // login invalido
-                JOptionPane.showMessageDialog(null, "Senha incorreta");
-            }
-        } catch (Throwable ex) {
-            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    private void telaFuncionario(String login, String senha) {
-        TelaPrincipalFunc telaPrincipalFunc;
-        try {
-            if (ControladorLogin.getInstance().getSenhaBoolean(login, senha)) {
-                //login ok
-                telaPrincipalFunc = new TelaPrincipalFunc();
-                telaPrincipalFunc.setLocationRelativeTo(null);
-                telaPrincipalFunc.setVisible(true);
-                telaPrincipalFunc.setTitle("Gym Tech - Academia");
-                dispose();
-            } else {
-                // login invalido
-                JOptionPane.showMessageDialog(null, "Senha incorreta");
-            }
-        } catch (Throwable ex) {
-            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-        } */
-    } 
 
     private void autenticacaoLogin() throws SQLException {
         TelaPrincipalAdm telaPrincipalAdm;
