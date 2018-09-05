@@ -275,7 +275,7 @@ public class TelaLogin extends javax.swing.JFrame {
         String senha = jPasswordField1.getText().trim();
         if (ControladorLogin.getInstance().getSenhaBoolean(login, senha)) {
             //login ok
-            if (login.equals("Administrador")) {
+            if (ControladorLogin.getInstance().verificaTipoAdm(login)) {
                 System.out.println("teste login adm");
                 telaPrincipalAdm = new TelaPrincipalAdm();
                 telaPrincipalAdm.setLocationRelativeTo(null);

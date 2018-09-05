@@ -8,6 +8,7 @@ package Persistencia;
 import Modelo.Aluno;
 import java.sql.SQLException;
 import Modelo.Funcionario;
+import Modelo.Login;
 import Modelo.Treino;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -64,12 +65,32 @@ public class MapeamentoBD {
         }
     }
 
-    public void insereSenha(String login, String senha) throws SQLException {
-        String query = "INSERT INTO login(login, senha) "
+    public void insereSenha(String login, String senha, String tipoLogin) throws SQLException {
+        String query = "INSERT INTO login(login, senha, tipo) "
                 + "VALUES('" + login + "',"
-                + "'" + senha + "')";
+                + "'" + senha + "',"
+                + "'" + tipoLogin + "')";
         try {
             SQLite.getInstancia().update(query);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public boolean verificaTipoAdm(String login) throws SQLException {
+        boolean aux = false;
+        String aux2 = "";
+        String query = "SELECT login, senha, tipo FROM login "
+                + "WHERE login = '" + login + "'";
+        try {
+            ResultSet rs = SQLite.getInstancia().getConsulta(query);
+            while (rs.next()) {
+                aux2 = rs.getString("tipo");
+                if (aux2.equals("adm")) {
+                    aux = true;
+                }
+            }
+            return aux;
         } catch (SQLException e) {
             throw e;
         }

@@ -6,6 +6,7 @@
 package Tela;
 
 import Autenticacao.ControladorLogin;
+import Autenticacao.TelaLogin;
 import Controle.ControladorPrincipal;
 import Modelo.Funcionario;
 import Modelo.Aluno;
@@ -75,6 +76,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jTextField26 = new javax.swing.JTextField();
+        jCheckBox11 = new javax.swing.JCheckBox();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -114,6 +116,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jCheckBox9 = new javax.swing.JCheckBox();
         jCheckBox10 = new javax.swing.JCheckBox();
         jButton9 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
@@ -124,6 +127,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jTextField28 = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jTextField18 = new javax.swing.JTextField();
@@ -134,6 +138,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jTextField29 = new javax.swing.JTextField();
         jButton11 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -165,10 +170,17 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         });
 
         jButton2.setText("Sair");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel26.setText("Id funcionário:");
 
         jTextField26.setEditable(false);
+
+        jCheckBox11.setText("Administrador");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -203,19 +215,21 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel16)
                             .addComponent(jLabel15)
                             .addComponent(jLabel26))
                         .addGap(37, 37, 37)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField15)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                            .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox11)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField15)
+                                .addComponent(jTextField16, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                                .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(164, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -243,7 +257,9 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox11)
+                .addGap(2, 2, 2)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -261,7 +277,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cadastro funcionarios", jPanel6);
@@ -279,6 +295,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jLabel7.setText("Endereço:");
 
         jButton3.setText("Sair");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Cadastrar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -435,6 +456,13 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             }
         });
 
+        jButton14.setText("Sair");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -476,11 +504,16 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                                     .addComponent(jCheckBox6))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel33)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(12, 12, 12)))
                 .addContainerGap(285, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -517,13 +550,14 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox9))
+                    .addComponent(jCheckBox9)
+                    .addComponent(jButton9))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox5)
                     .addComponent(jCheckBox10)
-                    .addComponent(jButton9))
-                .addContainerGap(55, Short.MAX_VALUE))
+                    .addComponent(jButton14))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Definir treino", jPanel1);
@@ -578,6 +612,13 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             }
         });
 
+        jButton15.setText("Sair");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -601,7 +642,9 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                                 .addGap(38, 38, 38)
                                 .addComponent(jButton5)))
                         .addGap(43, 43, 43)
-                        .addComponent(jButton6)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(147, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -611,7 +654,8 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
                     .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10))
+                    .addComponent(jButton10)
+                    .addComponent(jButton15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
@@ -675,6 +719,13 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             }
         });
 
+        jButton16.setText("Sair");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -698,7 +749,9 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                             .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton11, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(42, 42, 42)
-                        .addComponent(jButton8)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(22, 22, 22))
         );
         jPanel3Layout.setVerticalGroup(
@@ -708,7 +761,8 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
                     .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11))
+                    .addComponent(jButton11)
+                    .addComponent(jButton16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
@@ -868,6 +922,26 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField18KeyPressed
 
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        sair();
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        sair();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        sair();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        sair();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        sair();
+    }//GEN-LAST:event_jButton16ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -913,6 +987,9 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -923,6 +1000,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox10;
+    private javax.swing.JCheckBox jCheckBox11;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;
@@ -996,6 +1074,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cadastrarFuncionario() {
+        String tipoLogin;
         try {
             String nomeFunc = jTextField7.getText();
             String cpfFunc = jTextField8.getText();
@@ -1009,6 +1088,12 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             String senhaFunc = jTextField16.getText();
             int id = Integer.parseInt(jTextField26.getText());
 
+            if (jCheckBox11.isSelected()) {
+                tipoLogin = "adm";
+            } else {
+                tipoLogin = "func";
+            }
+
             Funcionario f = new Funcionario(id, nomeFunc, cpfFunc, rgFunc, nascimentoFunc,
                     telefoneFunc, enderecoFunc, cargoFunc, salarioFunc, loginFunc, senhaFunc);
 
@@ -1018,12 +1103,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios");
             } else {
                 ControladorPrincipal.getInstance().insereFuncionario(f);
-                ControladorLogin.getInstance().insereLogin(loginFunc, senhaFunc);
-                JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso");
+                ControladorLogin.getInstance().insereLogin(loginFunc, senhaFunc, tipoLogin);
+                JOptionPane.showMessageDialog(null, "Colaborador cadastrado com sucesso");
                 setarJTextFieldVazio();
                 setarIdFuncionario();
             }
-
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -1416,5 +1500,15 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jTextField14.setText("");
         jTextField15.setText("");
         jTextField16.setText("");
+        jCheckBox11.setSelected(false);
+    }
+
+    private void sair() {
+        TelaLogin telaLogin;
+        telaLogin = new TelaLogin();
+        telaLogin.setLocationRelativeTo(null);
+        telaLogin.setVisible(true);
+        telaLogin.setTitle("Gym Tech - Academia");
+        dispose();
     }
 }

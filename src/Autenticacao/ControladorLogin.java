@@ -32,8 +32,12 @@ public class ControladorLogin {
         return MapeamentoBD.getInstance().getSenhaBoolean(login, senha);
     }
 
-    public void insereLogin(String loginFunc, String senhaFunc) throws SQLException {
-        MapeamentoBD.getInstance().insereSenha(loginFunc, senhaFunc);
+    public void insereLogin(String loginFunc, String senhaFunc, String tipoLogin) throws SQLException {
+        MapeamentoBD.getInstance().insereSenha(loginFunc, senhaFunc, tipoLogin);
+    }
+
+    public boolean verificaTipoAdm(String login) throws SQLException {
+        return MapeamentoBD.getInstance().verificaTipoAdm(login);
     }
 
 }
