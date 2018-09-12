@@ -62,6 +62,12 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
+        try{ 
+            javax.swing.text.MaskFormatter telefone= new javax.swing.text.MaskFormatter("(##)#####-####");
+            jTextField2 = new javax.swing.JFormattedTextField(telefone);
+        }
+        catch (Exception e){
+        }
         jLabel13 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
