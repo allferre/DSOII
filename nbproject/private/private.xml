@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Allan/Documents/NetBeansProjects/Trabalho%20DSO%20II/src/Controle/ControladorPrincipal.java</file>
-            <file>file:/C:/Users/Allan/Documents/NetBeansProjects/Trabalho%20DSO%20II/src/Modelo/Aluno.java</file>
-            <file>file:/C:/Users/Allan/Documents/NetBeansProjects/Trabalho%20DSO%20II/src/Modelo/Funcionario.java</file>
-            <file>file:/C:/Users/Allan/Documents/NetBeansProjects/Trabalho%20DSO%20II/src/Persistencia/MapeamentoBD.java</file>
-            <file>file:/C:/Users/Allan/Documents/NetBeansProjects/Trabalho%20DSO%20II/src/Modelo/Login.java</file>
-            <file>file:/C:/Users/Allan/Documents/NetBeansProjects/Trabalho%20DSO%20II/src/Autenticacao/ControladorLogin.java</file>
-            <file>file:/C:/Users/Allan/Documents/NetBeansProjects/Trabalho%20DSO%20II/src/Modelo/Treino.java</file>
-            <file>file:/C:/Users/Allan/Documents/NetBeansProjects/Trabalho%20DSO%20II/src/Tela/TelaPrincipalFunc.java</file>
-            <file>file:/C:/Users/Allan/Documents/NetBeansProjects/Trabalho%20DSO%20II/src/Autenticacao/TelaLogin.java</file>
-            <file>file:/C:/Users/Allan/Documents/NetBeansProjects/Trabalho%20DSO%20II/src/trabalho/dso/ii/TrabalhoDSOII.java</file>
-            <file>file:/C:/Users/Allan/Documents/NetBeansProjects/Trabalho%20DSO%20II/src/Tela/TelaPrincipalAdm.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
